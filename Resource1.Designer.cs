@@ -22,7 +22,7 @@ namespace MVC5Demo {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resource1 {
+    public class Resource1 {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace MVC5Demo {
         ///   傳回這個類別使用的快取的 ResourceManager 執行個體。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MVC5Demo.Resource1", typeof(Resource1).Assembly);
@@ -51,7 +51,7 @@ namespace MVC5Demo {
         ///   使用這個強類型資源類別的資源查閱。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,9 +61,27 @@ namespace MVC5Demo {
         }
         
         /// <summary>
+        ///   查詢類似 年齡 的當地語系化字串。
+        /// </summary>
+        public static string Col_Age {
+            get {
+                return ResourceManager.GetString("Col_Age", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 名字 的當地語系化字串。
+        /// </summary>
+        public static string Col_Name1 {
+            get {
+                return ResourceManager.GetString("Col_Name1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查詢類似 請輸入年齡{1} ~ {2} 的當地語系化字串。
         /// </summary>
-        internal static string Person_Age_ran {
+        public static string Person_Age_ran {
             get {
                 return ResourceManager.GetString("Person_Age_ran", resourceCulture);
             }
@@ -72,7 +90,7 @@ namespace MVC5Demo {
         /// <summary>
         ///   查詢類似 請輸入年齡 的當地語系化字串。
         /// </summary>
-        internal static string Person_Age_req {
+        public static string Person_Age_req {
             get {
                 return ResourceManager.GetString("Person_Age_req", resourceCulture);
             }
@@ -81,7 +99,7 @@ namespace MVC5Demo {
         /// <summary>
         ///   查詢類似 請輸入名字 的當地語系化字串。
         /// </summary>
-        internal static string Person_Name_req {
+        public static string Person_Name_req {
             get {
                 return ResourceManager.GetString("Person_Name_req", resourceCulture);
             }
