@@ -42,5 +42,28 @@ namespace MVC5Demo.Controllers
             return View(person);
 
         }
+
+        public ActionResult Edit(int id)
+        {
+
+            return View(data.FirstOrDefault(p=> p.Id.Equals(id)));
+        }
+
+        [HttpPost]
+        public ActionResult Edit(int id, Person person)
+        {
+            if (ModelState.IsValid)
+            {
+                var tmp = data.FirstOrDefault(p => p.Id.Equals(id));
+                if (tmp != null)
+                {
+                    tmp.Name = person.Name;
+                    tmp.Age = person.Age;
+                }
+                return RedirectToAction("Index");
+            }
+
+            return View(person);
+        }
     }
 }
