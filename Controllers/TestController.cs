@@ -9,10 +9,7 @@ namespace MVC5Demo.Controllers
 {
     public class TestController : Controller
     {
-        // GET: Test
-        public ActionResult Index()
-        {
-            var data = new List<Person>()
+        static List<Person> data = new List<Person>()
             {
                 new Person() {Id = 1, Name = "A", Age = 18},
                 new Person() {Id = 2, Name = "B", Age = 19},
@@ -21,8 +18,29 @@ namespace MVC5Demo.Controllers
 
             };
 
-
+        // GET: Test
+        public ActionResult Index()
+        {
             return View(data);
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Person person)
+        {
+            if (ModelState.IsValid)
+            {
+                data.Add(person);
+
+                return RedirectToAction("Index");
+            }
+
+            return View(person);
+
         }
     }
 }
