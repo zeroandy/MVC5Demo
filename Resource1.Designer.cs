@@ -61,6 +61,24 @@ namespace MVC5Demo {
         }
         
         /// <summary>
+        ///   查詢類似 請輸入年齡{1} ~ {2} 的當地語系化字串。
+        /// </summary>
+        internal static string Person_Age_ran {
+            get {
+                return ResourceManager.GetString("Person_Age_ran", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 請輸入年齡 的當地語系化字串。
+        /// </summary>
+        internal static string Person_Age_req {
+            get {
+                return ResourceManager.GetString("Person_Age_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查詢類似 請輸入名字 的當地語系化字串。
         /// </summary>
         internal static string Person_Name_req {

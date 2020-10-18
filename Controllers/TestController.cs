@@ -26,6 +26,7 @@ namespace MVC5Demo.Controllers
 
         public ActionResult Create()
         {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
             return View();
         }
 
