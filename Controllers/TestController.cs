@@ -9,12 +9,12 @@ namespace MVC5Demo.Controllers
 {
     public class TestController : Controller
     {
-        static List<Person> data = new List<Person>()
+        static List<MyPerson> data = new List<MyPerson>()
             {
-                new Person() {Id = 1, Name = "A", Age = 18},
-                new Person() {Id = 2, Name = "B", Age = 19},
-                new Person() {Id = 3, Name = "C", Age = 20},
-                new Person() {Id = 4, Name = "D", Age = 21},
+                new MyPerson() {Id = 1, Name = "A", Age = 18},
+                new MyPerson() {Id = 2, Name = "B", Age = 19},
+                new MyPerson() {Id = 3, Name = "C", Age = 20},
+                new MyPerson() {Id = 4, Name = "D", Age = 21},
 
             };
 
@@ -32,7 +32,7 @@ namespace MVC5Demo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Person person)
+        public ActionResult Create(MyPerson person)
         {
             if (ModelState.IsValid)
             {
@@ -52,7 +52,7 @@ namespace MVC5Demo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int id, Person person)
+        public ActionResult Edit(int id, MyPerson person)
         {
             if (ModelState.IsValid)
             {
