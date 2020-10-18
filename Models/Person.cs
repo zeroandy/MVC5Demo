@@ -11,8 +11,8 @@ namespace MVC5Demo.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "請輸入姓名")]
         public string Name { get; set; }
-        [Required(ErrorMessage ="請輸入18 ~ 99")]
-        [Range(18, 99)]
+        [Required(ErrorMessage ="請輸入年紀")]
+        [Range(18, 99, ErrorMessage ="請輸入{1} ~ {2}")]
         public int Age { get; set; }
     }
 }
