@@ -73,7 +73,7 @@ namespace MVC5Demo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int id, Person person)
+        public ActionResult Delete(int id, FormCollection fc)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace MVC5Demo.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(person);
+            return View();
         }
 
         public ActionResult Details(int id)
