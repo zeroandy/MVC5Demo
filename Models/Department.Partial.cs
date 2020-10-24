@@ -19,6 +19,8 @@ namespace MVC5Demo.Models
         [Required]
         public decimal Budget { get; set; }
         [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-mm-dd}")]
         public Nullable<System.DateTime> StartDate { get; set; }
         [Required]
         public Nullable<int> InstructorID { get; set; }
