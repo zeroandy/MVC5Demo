@@ -13,7 +13,7 @@ namespace MVC5Demo.Models
         public decimal Budget { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-        public System.DateTime StartDate { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<int> InstructorID { get; set; }
     }
 }

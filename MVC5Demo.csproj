@@ -169,13 +169,37 @@
     <Compile Include="Models\Course.cs">
       <DependentUpon>ContosoUniversity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Course.Partial.cs">
+      <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\C__EFMigrationsHistory.cs">
       <DependentUpon>ContosoUniversity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__EFMigrationsHistory.Partial.cs">
+      <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Department.cs">
       <DependentUpon>ContosoUniversity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DepartmentEdit.cs" />
+    <Compile Include="Models\Department.Partial.cs">
+      <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EFGeneratePartialClass.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Enrollment.Partial.cs">
+      <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OfficeAssignment.Partial.cs">
+      <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Person.Partial.cs">
+      <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VIewModel\CourseEdit.cs" />
+    <Compile Include="Models\VIewModel\DepartmentEdit.cs" />
     <Compile Include="Models\Enrollment.cs">
       <DependentUpon>ContosoUniversity.tt</DependentUpon>
     </Compile>
@@ -220,6 +244,10 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ContosoUniversity.edmx</DependentUpon>
       <LastGenOutput>ContosoUniversity.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EFGeneratePartialClass.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EFGeneratePartialClass.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
