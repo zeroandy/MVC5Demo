@@ -20,6 +20,7 @@ namespace MVC5Demo.Models
         public decimal Budget { get; set; }
         [Required]
         public Nullable<System.DateTime> StartDate { get; set; }
+        [Required]
         public Nullable<int> InstructorID { get; set; }
     }
 }
