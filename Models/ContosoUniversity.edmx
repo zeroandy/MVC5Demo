@@ -20,7 +20,6 @@
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="Credits" Type="int" Nullable="false" />
           <Property Name="DepartmentID" Type="int" Nullable="false" />
-          <Property Name="Memo" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="CourseInstructor">
           <Key>
@@ -37,7 +36,7 @@
           <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Budget" Type="money" Nullable="false" />
-          <Property Name="StartDate" Type="datetime" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
           <Property Name="InstructorID" Type="int" />
           <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
@@ -221,7 +220,6 @@
           <NavigationProperty Name="Department" Relationship="Self.FK_dbo_Course_dbo_Department_DepartmentID" FromRole="Course" ToRole="Department" />
           <NavigationProperty Name="Enrollment" Relationship="Self.FK_dbo_Enrollment_dbo_Course_CourseID" FromRole="Course" ToRole="Enrollment" />
           <NavigationProperty Name="Person" Relationship="Self.CourseInstructor" FromRole="Course" ToRole="Person" />
-          <Property Name="Memo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -230,7 +228,7 @@
           <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Budget" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="InstructorID" Type="Int32" />
           <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="Course" Relationship="Self.FK_dbo_Course_dbo_Department_DepartmentID" FromRole="Department" ToRole="Course" />
@@ -389,7 +387,6 @@
           <EntitySetMapping Name="Course">
             <EntityTypeMapping TypeName="ContosoUniversityModel.Course">
               <MappingFragment StoreEntitySet="Course">
-                <ScalarProperty Name="Memo" ColumnName="Memo" />
                 <ScalarProperty Name="CourseID" ColumnName="CourseID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Credits" ColumnName="Credits" />

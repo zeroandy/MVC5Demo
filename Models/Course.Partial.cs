@@ -21,7 +21,5 @@ namespace MVC5Demo.Models
         [Required]
         public int DepartmentID { get; set; }
         
-        [StringLength(200, ErrorMessage="欄位長度不得大於 200 個字元")]
-        public string Memo { get; set; }
     }
 }

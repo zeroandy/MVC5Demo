@@ -11,6 +11,5 @@ namespace MVC5Demo.Models.VIewModel
         public string Title { get; set; }
         public int Credits { get; set; }
         public int DepartmentID { get; set; }
-        public string Memo { get; set; }
     }
 }
