@@ -1,4 +1,5 @@
 ﻿using MVC5Demo.Models;
+using Omu.ValueInjecter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,16 +61,18 @@ namespace MVC5Demo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int id, Department department)
+        public ActionResult Edit(int id, DepartmentEdit department)
         {
             if (ModelState.IsValid)
             {
                 var item = db.Department.Find(id);
 
-                item.Budget = department.Budget;
-                item.Name = department.Name;
-                item.StartDate = department.StartDate;
-                item.InstructorID = department.InstructorID;
+                item.InjectFrom(department);
+
+                //item.Budget = department.Budget;
+                //item.Name = department.Name;
+                //item.StartDate = department.StartDate;
+                //item.InstructorID = department.InstructorID;
 
                 db.SaveChanges();
 
@@ -97,7 +100,7 @@ namespace MVC5Demo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, FormCollection frmc)
         {
             if (ModelState.IsValid)
             {
