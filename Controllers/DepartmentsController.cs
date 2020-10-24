@@ -53,10 +53,10 @@ namespace MVC5Demo.Controllers
             {
                 return this.HttpNotFound();
             }
+            var item = db.Department.Find(id);
+            ViewBag.InstructorID = new SelectList(db.Person, "ID", "FirstName", item.InstructorID);
 
-            ViewBag.InstructorID = new SelectList(db.Person, "ID", "FirstName");
-
-            return View(db.Department.Find(id));
+            return View(item);
         }
 
         [HttpPost]
@@ -115,6 +115,15 @@ namespace MVC5Demo.Controllers
             }
 
             return View();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
