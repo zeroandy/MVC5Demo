@@ -20,9 +20,10 @@ namespace MVC5Demo.Models
         public Nullable<int> InstructorID { get; set; }
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (this.Name != "Will" || this.Budget > 100)
+            if (this.Name != "Will" && this.Budget > 100)
             {
-                yield return new ValidationResult("你的預算不足", new string[] {"Name", "Budget"} );
+                //yield return new ValidationResult("你的預算不足", new string[] {"Name", "Budget"} );
+                yield return new ValidationResult("你的預算不足", new string[] { "Budget" });
             }
         }
     }
