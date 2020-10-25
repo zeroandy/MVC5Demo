@@ -148,6 +148,7 @@
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -200,6 +201,7 @@
       <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VIewModel\CourseEdit.cs" />
+    <Compile Include="Models\VIewModel\CoursesReport1VM.cs" />
     <Compile Include="Models\VIewModel\DepartmentEdit.cs" />
     <Compile Include="Models\Enrollment.cs">
       <DependentUpon>ContosoUniversity.tt</DependentUpon>
@@ -300,6 +302,7 @@
     <Content Include="Views\Departments\Edit.cshtml" />
     <Content Include="Views\Departments\Details.cshtml" />
     <Content Include="Views\Departments\Delete.cshtml" />
+    <Content Include="Views\Reports\CoursesReport1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

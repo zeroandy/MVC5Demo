@@ -5,10 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6e9ddabeffbb4b608b29b6b4495e8a85" Name="Diagram1">
-        <EntityTypeShape EntityType="ContosoUniversityModel.C__EFMigrationsHistory" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ContosoUniversityModel.Course" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ContosoUniversityModel.C__EFMigrationsHistory" Width="1.5" PointX="12.125" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ContosoUniversityModel.Course" Width="1.5" PointX="7.25" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ContosoUniversityModel.Department" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ContosoUniversityModel.Enrollment" Width="1.5" PointX="7.5" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ContosoUniversityModel.Enrollment" Width="1.5" PointX="9" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="ContosoUniversityModel.OfficeAssignment" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ContosoUniversityModel.Person" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
         <AssociationConnector Association="ContosoUniversityModel.FK_dbo_Course_dbo_Department_DepartmentID" ManuallyRouted="false" />
