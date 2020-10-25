@@ -79,7 +79,11 @@ namespace MVC5Demo.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(db.Department.Find(id));
+            var newItem = db.Department.Find(id);
+
+            ViewBag.InstructorID = new SelectList(db.Person, "ID", "FirstName", newItem.InstructorID);
+
+            return View(newItem);
         }
 
         public ActionResult Delete(int? id)
