@@ -186,6 +186,9 @@
     <Compile Include="Models\Department.Partial.cs">
       <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Department_Insert_Result.cs">
+      <DependentUpon>ContosoUniversity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\EFGeneratePartialClass.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,6 +196,9 @@
     </Compile>
     <Compile Include="Models\Enrollment.Partial.cs">
       <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetCourseReport_Result.cs">
+      <DependentUpon>ContosoUniversity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OfficeAssignment.Partial.cs">
       <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
@@ -303,6 +309,7 @@
     <Content Include="Views\Departments\Details.cshtml" />
     <Content Include="Views\Departments\Delete.cshtml" />
     <Content Include="Views\Reports\CoursesReport1.cshtml" />
+    <Content Include="Views\Reports\CoursesReport4.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
