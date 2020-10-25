@@ -12,7 +12,7 @@ using Omu.ValueInjecter;
 
 namespace MVC5Demo.Controllers
 {
-    public class CoursesController : Controller
+    public class CoursesController : BaseController
     {
         private ContosoUniversityEntities db = new ContosoUniversityEntities();
 

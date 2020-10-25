@@ -7,7 +7,7 @@ using MVC5Demo.Models;
 
 namespace MVC5Demo.Controllers
 {
-    public class TestController : Controller
+    public class TestController : BaseController
     {
         static List<MyPerson> data = new List<MyPerson>()
             {

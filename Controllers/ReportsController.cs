@@ -10,7 +10,7 @@ using MVC5Demo.Models.VIewModel;
 
 namespace MVC5Demo.Controllers
 {
-    public class ReportsController : Controller
+    public class ReportsController : BaseController
     {
         private ContosoUniversityEntities db = new ContosoUniversityEntities();
         StringBuilder sb = new StringBuilder();
