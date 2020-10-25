@@ -18,6 +18,7 @@ namespace MVC5Demo.Models
         }
         public override void Delete(Department entity)
         {
+            this.UnitOfWork.Context.Configuration.ValidateOnSaveEnabled = false;
             entity.IsDeleted = true;
         }
     }
