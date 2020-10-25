@@ -59,8 +59,7 @@ namespace MVC5Demo.Controllers
 (select COUNT(CourseID) from CourseInstructor where (CourseID = Course.CourseID)) as TeacherCount,
 (select COUNT(CourseID) from Enrollment where (Course.CourseID = Enrollment.CourseID)) as StudentCount,
 (select AVG(CAST(Grade as Float)) from Enrollment where (Course.CourseID = Enrollment.CourseID)) as AvgGrade
-from Course
-Group by Course.CourseID,course.Title");
+from Course ");
             return View("CoursesReport1", data);
         }
 
@@ -71,8 +70,7 @@ Group by Course.CourseID,course.Title");
 (select COUNT(CourseID) from Enrollment where (Course.CourseID = Enrollment.CourseID)) as StudentCount,
 (select AVG(CAST(Grade as Float)) from Enrollment where (Course.CourseID = Enrollment.CourseID)) as AvgGrade
 from Course
-where Course.CourseID = @p0
-Group by Course.CourseID,course.Title", id);
+where Course.CourseID = @p0 ", id);
             return View("CoursesReport1", data);
         }
     }
