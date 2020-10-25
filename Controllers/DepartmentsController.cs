@@ -12,24 +12,30 @@ namespace MVC5Demo.Controllers
 {
     public class DepartmentsController : Controller
     {
-        private ContosoUniversityEntities db = new ContosoUniversityEntities();
+        DepartmentRepository repoDepart;
+        PersonRepository repoPerson;
 
+        public DepartmentsController()
+        {
+            repoDepart = RepositoryHelper.GetDepartmentRepository();
+            repoPerson = RepositoryHelper.GetPersonRepository(repoDepart.UnitOfWork);
+        }
         // GET: Departments
         public ActionResult Index()
         {
 
-            return View(db.Department.ToList() );
+            return View(repoDepart.All());
         }
 
         public ActionResult Details(int? id)
         {
 
-            return View(db.Department.Find(id));
+            return View(repoDepart.GetDepartmentByID(id.Value));
         }
 
         public ActionResult Create()
         {
-            ViewBag.InstructorID = new SelectList(db.Person.OrderBy(p=>p.FirstName), "ID", "FirstName");
+            ViewBag.InstructorID = new SelectList(repoPerson.All().OrderBy(p=>p.FirstName), "ID", "FirstName");
             return View();
         }
 
@@ -38,12 +44,13 @@ namespace MVC5Demo.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Department.Add(department);
-                db.SaveChanges();
+                repoDepart.Add(department);
+                repoDepart.UnitOfWork.Commit();
+
                 return RedirectToAction("Index");
             }
 
-            ViewBag.InstructorID = new SelectList(db.Person.OrderBy(p=>p.FirstName), "ID", "FirstName");
+            ViewBag.InstructorID = new SelectList(repoPerson.All().OrderBy(p=>p.FirstName), "ID", "FirstName");
 
             return View(department);
         }
@@ -54,8 +61,9 @@ namespace MVC5Demo.Controllers
             {
                 return this.HttpNotFound();
             }
-            var item = db.Department.Find(id);
-            ViewBag.InstructorID = new SelectList(db.Person.OrderBy(p=>p.FirstName), "ID", "FirstName", item.InstructorID);
+
+            var item = repoDepart.GetDepartmentByID(id.Value);
+            ViewBag.InstructorID = new SelectList(repoPerson.All().OrderBy(p=>p.FirstName), "ID", "FirstName", item.InstructorID);
 
             return View(item);
         }
@@ -65,23 +73,19 @@ namespace MVC5Demo.Controllers
         {
             if (ModelState.IsValid)
             {
-                var item = db.Department.Find(id);
+                var item = repoDepart.GetDepartmentByID(id);
 
                 item.InjectFrom(department);
 
-                //item.Budget = department.Budget;
-                //item.Name = department.Name;
-                //item.StartDate = department.StartDate;
-                //item.InstructorID = department.InstructorID;
 
-                db.SaveChanges();
+                repoDepart.UnitOfWork.Commit();
 
                 return RedirectToAction("Index");
             }
 
-            var newItem = db.Department.Find(id);
+            var newItem = repoDepart.GetDepartmentByID(id);
 
-            ViewBag.InstructorID = new SelectList(db.Person, "ID", "FirstName", newItem.InstructorID);
+            ViewBag.InstructorID = new SelectList(repoPerson.All(), "ID", "FirstName", newItem.InstructorID);
 
             return View(newItem);
         }
@@ -93,7 +97,7 @@ namespace MVC5Demo.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var item = db.Department.Find(id);
+            var item = repoDepart.GetDepartmentByID(id.Value);
 
             if (item == null)
             {
@@ -108,15 +112,17 @@ namespace MVC5Demo.Controllers
         {
             if (ModelState.IsValid)
             {
-                var item = db.Department.Find(id);
+                var item = repoDepart.GetDepartmentByID(id);
 
                 if (item == null)
                 {
                     return HttpNotFound();
                 }
 
-                db.Department.Remove(item);
-                db.SaveChanges();
+                repoDepart.Delete(item);
+                repoDepart.UnitOfWork.Commit();
+
+
 
                 return RedirectToAction("Index");
             }
@@ -124,13 +130,6 @@ namespace MVC5Demo.Controllers
             return View();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+
     }
 }
