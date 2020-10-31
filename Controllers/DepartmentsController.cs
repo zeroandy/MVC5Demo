@@ -108,7 +108,8 @@ namespace MVC5Demo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection frmc)
+        [ActionName("Delete")]
+        public ActionResult DeleteConfirm(int id)
         {
             if (ModelState.IsValid)
             {

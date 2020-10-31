@@ -36,6 +36,7 @@ namespace MVC5Demo.Models
         [Required]
         [Range(1, 5)]
         public int Credits { get; set; }
-
+        [Required]
+        public int DepartmentID { get; set; }
     }
 }
