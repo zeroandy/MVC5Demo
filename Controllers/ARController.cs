@@ -67,7 +67,7 @@ namespace MVC5Demo.Controllers
         {
             repoDepart.UnitOfWork.Context.Configuration.LazyLoadingEnabled = false;
             var data = repoDepart.GetDepartmentByID(1);
-            return Json(data, JsonRequestBehavior.AllowGet);
+            return Json(data);
         }
     }
 }
