@@ -19,6 +19,8 @@ namespace MVC5Demo.Models
         public string Title { get; set; }
         [Required]
         [Range(1, 5)]
+        [MustBeEvent]
+        //[MustBeEvent(ErrorMessage ="請輸入偶數的Budget資料!!")]
         public int Credits { get; set; }
         [Required]
         public int DepartmentID { get; set; }
