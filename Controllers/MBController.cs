@@ -4,16 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC5Demo.Models;
+using Omu.ValueInjecter;
 
 namespace MVC5Demo.Controllers
 {
     public class MBController : Controller
     {
         DepartmentRepository repoDepart;
+        private CourseRepository repoCourse;
 
         public MBController()
         {
             repoDepart = RepositoryHelper.GetDepartmentRepository();
+            repoCourse = RepositoryHelper.GetCourseRepository();
         }
         // GET: MB
         public ActionResult Index(int id = 1)
@@ -40,6 +43,39 @@ namespace MVC5Demo.Controllers
         public ActionResult ReadTempData()
         {
             return View();
+        }
+
+        public ActionResult CoursesBatchEdit(bool isEditMode = false)
+        {
+            ViewData.Model = repoCourse.All();
+
+            ViewBag.isEditMode = isEditMode;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CoursesBatchEdit(List<CourseEditView> data, bool isEditMode = false)
+        {
+            if (ModelState.IsValid)
+            {
+                foreach (var course in data)
+                {
+                    var newcourse = repoCourse.All().FirstOrDefault(p => p.CourseID.Equals(course.CourseID));
+                    newcourse.InjectFrom(course);
+                }
+
+                repoCourse.UnitOfWork.Commit();
+
+                TempData["CoursesBatchEditResult"] = "CoursesBatchEdit Completed!!";
+
+
+                return RedirectToAction("CoursesBatchEdit");
+            }
+
+            ViewBag.isEditMode = isEditMode;
+
+            return View(repoCourse.All());
         }
     }
 }
