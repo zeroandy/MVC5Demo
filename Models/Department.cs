@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Web.Script.Serialization;
+
 namespace MVC5Demo.Models
 {
     using System;
@@ -27,9 +29,11 @@ namespace MVC5Demo.Models
         public Nullable<int> InstructorID { get; set; }
         public byte[] RowVersion { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
-    
+        
+         [ScriptIgnore(ApplyToOverrides = true)]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course> Course { get; set; }
+         [ScriptIgnore(ApplyToOverrides = true)]
         public virtual Person Person { get; set; }
     }
 }
