@@ -11,6 +11,7 @@ using System.Web.Script.Serialization;
 
 namespace MVC5Demo.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -31,9 +32,11 @@ namespace MVC5Demo.Models
         public Nullable<bool> IsDeleted { get; set; }
         
          [ScriptIgnore(ApplyToOverrides = true)]
+         [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course> Course { get; set; }
          [ScriptIgnore(ApplyToOverrides = true)]
+         [JsonIgnore]
         public virtual Person Person { get; set; }
     }
 }

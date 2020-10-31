@@ -57,4 +57,17 @@ namespace MVC5Demo.Models
             //return base.IsValid(value);
         }
     }
+
+    public class DepartmentJsonView
+    {
+        public int DepartmentID { get; set; }
+
+        public string Name { get; set; }
+
+        public decimal Budget { get; set; }
+
+        public Nullable<System.DateTime> StartDate { get; set; }
+        [Required]
+        public Nullable<int> InstructorID { get; set; }
+    }
 }

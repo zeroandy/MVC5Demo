@@ -5,6 +5,8 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using MVC5Demo.Models;
+using Newtonsoft.Json;
+using Omu.ValueInjecter;
 
 namespace MVC5Demo.Controllers
 {
@@ -65,9 +67,27 @@ namespace MVC5Demo.Controllers
         [HttpPost]
         public ActionResult JsonTest2()
         {
-            repoDepart.UnitOfWork.Context.Configuration.LazyLoadingEnabled = false;
+            //repoDepart.UnitOfWork.Context.Configuration.LazyLoadingEnabled = false;
             var data = repoDepart.GetDepartmentByID(1);
             return Json(data);
+        }
+
+        public ActionResult JsonTest3()
+        {
+
+            var data = repoDepart.GetDepartmentByID(1);
+            Response.ContentType = "test/json";
+            return Content(JsonConvert.SerializeObject(data));
+        }
+
+        public ActionResult JsonTest4()
+        {
+
+            var data = repoDepart.GetDepartmentByID(1);
+            var result = new DepartmentJsonView();
+            result.InjectFrom(data);
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }
