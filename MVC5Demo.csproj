@@ -545,6 +545,9 @@
     <Content Include="Views\Departments\CoursesUnderDetails.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Credits.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Credits.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Enum.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Enum_radio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
