@@ -55,29 +55,7 @@
 
     <hr/>
 
-    <table class="table">
-        <tr>
-            <th>
-                Title
-            </th>
-            <th>
-                Credits
-            </th>
-        </tr>
-
-        @foreach (var item in Model.Course)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Credits)
-                </td>
-            </tr>
-        }
-
-    </table>
+    @Html.Partial("CoursesUnderDetails", Model.Course)
 
 
 </div>
