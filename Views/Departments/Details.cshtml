@@ -8,7 +8,7 @@
 
 <div>
     <h4>Department</h4>
-    <hr />
+    <hr/>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -51,8 +51,37 @@
         </dd>
 
     </dl>
+
+
+    <hr/>
+
+    <table class="table">
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Credits
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Course)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Credits)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.DepartmentID }) |
+    @Html.ActionLink("Edit", "Edit", new {id = Model.DepartmentID}) |
     @Html.ActionLink("Back to List", "Index")
 </p>
