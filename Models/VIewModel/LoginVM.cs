@@ -13,6 +13,7 @@ namespace MVC5Demo.Models.VIewModel
 
         [Required]
         [MinLength(3), MaxLength(16)]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }
