@@ -14,11 +14,13 @@ namespace MVC5Demo.Controllers
     {
         DepartmentRepository repoDepart;
         PersonRepository repoPerson;
+        CourseRepository repoCourse;
 
         public DepartmentsController()
         {
             repoDepart = RepositoryHelper.GetDepartmentRepository();
             repoPerson = RepositoryHelper.GetPersonRepository(repoDepart.UnitOfWork);
+            repoCourse = RepositoryHelper.GetCourseRepository(repoDepart.UnitOfWork);
         }
         // GET: Departments
         public ActionResult Index()
@@ -31,6 +33,14 @@ namespace MVC5Demo.Controllers
         {
 
             return View(repoDepart.GetDepartmentByID(id.Value));
+        }
+
+        [ChildActionOnly]
+        public ActionResult CoursesUnderDetails(int id)
+        {
+            var data = repoCourse.All().Where(predicate => predicate.DepartmentID.Equals(id));
+
+            return PartialView(data);
         }
 
         public ActionResult Create()
